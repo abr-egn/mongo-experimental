@@ -1057,7 +1057,9 @@ dependencies = [
 name = "mongo-experimental"
 version = "0.1.0"
 dependencies = [
- "mongodb-11",
+ "async-std",
+ "mongodb",
+ "tokio",
 ]
 
 [[package]]
@@ -1105,15 +1107,6 @@ dependencies = [
  "version_check",
  "webpki",
  "webpki-roots 0.18.0",
-]
-
-[[package]]
-name = "mongodb-11"
-version = "0.1.0"
-dependencies = [
- "async-std",
- "mongodb",
- "tokio",
 ]
 
 [[package]]
