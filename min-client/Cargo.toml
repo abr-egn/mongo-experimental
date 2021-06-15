@@ -9,10 +9,11 @@ edition = "2018"
 [dependencies]
 mongodb-111 = { package = "mongodb", version = "= 1.1.1", optional = true, default-features = false }
 tokio-111 = { package = "tokio", version = "0.2.18", optional = true }
+async-std-111 = { package = "async-std", version = "1.6.2", optional = true }
 
 [features]
 default = ["v111-tokio"]
 v111 = []
 v111-tokio = ["v111", "tokio-111", "mongodb-111/tokio-runtime"]
-v111-async-std = ["v111", "mongodb-111/async-std-runtime"]
+v111-async-std = ["v111", "async-std-111", "mongodb-111/async-std-runtime"]
 v111-sync = ["v111", "mongodb-111/sync"]
