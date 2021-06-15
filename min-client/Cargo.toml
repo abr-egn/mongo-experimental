@@ -13,7 +13,8 @@ async-std-111 = { package = "async-std", version = "1.6.2", optional = true }
 
 [features]
 default = ["v111-tokio"]
+sync = []
 v111 = []
 v111-tokio = ["v111", "tokio-111", "mongodb-111/tokio-runtime"]
 v111-async-std = ["v111", "async-std-111", "mongodb-111/async-std-runtime"]
-v111-sync = ["v111", "mongodb-111/sync"]
+v111-sync = ["v111", "sync", "mongodb-111/sync"]
