@@ -1,13 +1,17 @@
-#[cfg(feature = "v111")]
-use mongodb_111 as mongodb;
-#[cfg(feature = "v111-tokio")]
-use tokio_111 as tokio;
-#[cfg(feature = "v111-async-std")]
-use async_std_111 as async_std;
+#[cfg(feature = "v11")]
+use mongodb_11 as shim;
+#[cfg(feature = "v12")]
+use mongodb_12 as shim;
+
+use shim::mongodb;
+#[cfg(feature = "tokio-runtime")]
+use shim::tokio;
+#[cfg(feature = "async-std-runtime")]
+use shim::async_std;
 
 #[cfg(not(feature = "sync"))]
-#[cfg_attr(feature = "v111-tokio", tokio::main)]
-#[cfg_attr(feature = "v111-async-std", async_std::main)]
+#[cfg_attr(feature = "tokio-runtime", tokio::main)]
+#[cfg_attr(feature = "async-std-runtime", async_std::main)]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     use mongodb::Client;
 

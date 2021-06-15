@@ -7,14 +7,19 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-mongodb-111 = { package = "mongodb", version = "= 1.1.1", optional = true, default-features = false }
-tokio-111 = { package = "tokio", version = "0.2.18", optional = true }
-async-std-111 = { package = "async-std", version = "1.6.2", optional = true }
+mongodb-11 = { path = "mongodb-11", optional = true }
+mongodb-12 = { path = "mongodb-12", optional = true }
 
 [features]
-default = ["v111-tokio"]
+default = ["v11-tokio"]
+tokio-runtime = []
+async-std-runtime = []
 sync = []
-v111 = []
-v111-tokio = ["v111", "tokio-111", "mongodb-111/tokio-runtime"]
-v111-async-std = ["v111", "async-std-111", "mongodb-111/async-std-runtime"]
-v111-sync = ["v111", "sync", "mongodb-111/sync"]
+v11 = []
+v11-tokio = ["v11", "tokio-runtime", "mongodb-11/tokio-runtime"]
+v11-async-std = ["v11", "async-std-runtime", "mongodb-11/async-std-runtime"]
+v11-sync = ["v11", "sync", "mongodb-11/sync"]
+v12 = []
+v12-tokio = ["v12", "tokio-runtime", "mongodb-12/tokio-runtime"]
+v12-async-std = ["v12", "async-std-runtime", "mongodb-12/async-std-runtime"]
+v12-sync = ["v12", "sync", "mongodb-12/sync"]
